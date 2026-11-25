@@ -56,6 +56,9 @@ This repository contains the embedded STM32 firmware, MATLAB/Simulink models, me
 | ![Phase Portrait SoftLQR](experiments/figures/Phase%20Portrait%20of%20Limit%20Cycle%20SoftLQR.png) | ![Delay Verification](experiments/figures/Time-domain%20Delay%20Verification.png) |
 
 - Demonstration video: [`media/demo_video.mp4`](media/demo_video.mp4)
+
+https://github.com/user-attachments/assets/3cab052c-f99d-4dfd-ab25-deb1932a8f66
+
 - Complete theoretical derivation, hardware design, and experimental evaluation: [`docs/Final_Report_G2025.pdf`](docs/Final_Report_G2025.pdf)
 
 ---
