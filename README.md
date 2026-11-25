@@ -49,16 +49,37 @@ This repository contains the embedded STM32 firmware, MATLAB/Simulink models, me
 
 ---
 
-## Experimental Results Preview
+## Experimental Results & Controller Comparison
+
+Full plots and derivations for all subsystems are documented in [`docs/Final_Report_G2025.pdf`](docs/Final_Report_G2025.pdf) (Chapter 6).
+
+### 1. Swing-Up & Mode Switching (Sections 6.1–6.2)
+
+- **Autonomous Swing-Up**: Using feedback linearization + Lyapunov energy control (`tanh` smoothing + first-order velocity filter, $\alpha = 0.9$), physical hardware achieved swing-up within **0.188 s** of the nominal simulation time with minimal chattering; inherent friction bounded arm sweep to **35.3°** even without the arm-centering PD term.
+- **Switching Logic**: Across 20 hardware trials per threshold (with $|\dot{\theta}_p| < 5\text{ rad/s}$, $|\dot{\theta}_a| < 5\text{ rad/s}$, `10 ms` debounce), a pendulum-angle threshold of **0.25 rad** achieved **100% switching success** (vs. 85% at `0.15 rad`) without hitting post-switch actuator saturation seen at `0.35–0.45 rad`.
+
+### 2. Balancing Performance: Cascade PID vs. Discrete LQR (Sections 6.3–6.5)
+
+| Metric | Cascade PID (`firmware/swingup_pid/`) | Discrete LQR (`firmware/swingup_lqr/`, `R = 20`) |
+| :--- | :--- | :--- |
+| **Control Structure** | Dual-loop cascade PD/PID (`1 ms` inner / `7 ms` outer) | State-feedback DLQR (`Ts = 1 ms`) + cascaded LPF ($\alpha_{\text{angle}}=0.9$, $\alpha_{\text{output}}=0.71$) |
+| **Simulation Settling** | `1.26 s` pendulum ($\pm 0.01\text{ rad}$), `1.29 s` arm ($\pm 0.02\text{ rad}$) | Stabilized for $R \ge 0.7$ (+50.7° phase margin); tolerates `50 ms` 12 V pulse |
+| **Hardware Capture & Steady State** | Captures in `0.54 s`; `~7.5 Hz` residual limit cycle (`+0.109` to `-0.107 rad`, `0.216 rad` p-p); arm within $\pm 0.05\text{ rad}$ | Suppresses chattering (+48.2° PM, `18.4 rad/s` BW); smaller steady-state limit cycle (~$\pm 0.035\text{ rad}$ in Fig. 56) |
+| **100% PWM Disturbance (`20 / 25 ms`)** | Recovers reliably | Recovers reliably |
+| **100% PWM Disturbance (`30 ms`)** | Marginal recovery (~4/10 trials, multiple arm rotations) | Recovers reliably |
+| **100% PWM Disturbance (`40 ms`)** | Loses balance (physical actuator limit) | Loses balance (physical actuator limit) |
+
+### 3. Visual Previews & Demo Video
+
+*(Note: Standalone figures and `.csv` logs in `experiments/` cover the LQR characterization suite; Swing-Up, Cascade PID time-domain/phase-portrait plots, and PID-vs-LQR disturbance comparison plots are presented in Sections 6.1–6.3 and 6.5 of [`docs/Final_Report_G2025.pdf`](docs/Final_Report_G2025.pdf).)*
 
 | Limit Cycle Comparison (LQR vs. Soft-LQR) | Time-Domain Delay Verification |
 | :---: | :---: |
 | ![Phase Portrait SoftLQR](experiments/figures/Phase%20Portrait%20of%20Limit%20Cycle%20SoftLQR.png) | ![Delay Verification](experiments/figures/Time-domain%20Delay%20Verification.png) |
 
-- Demonstration video: [`media/demo_video.mp4`](media/demo_video.mp4)
-
 https://github.com/user-attachments/assets/3cab052c-f99d-4dfd-ab25-deb1932a8f66
 
+- Source clip: [`media/demo_video.mp4`](media/demo_video.mp4)
 - Complete theoretical derivation, hardware design, and experimental evaluation: [`docs/Final_Report_G2025.pdf`](docs/Final_Report_G2025.pdf)
 
 ---
@@ -89,6 +110,10 @@ https://github.com/user-attachments/assets/3cab052c-f99d-4dfd-ab25-deb1932a8f66
 ## Team & Acknowledgments
 
 - **Project Team (Group G2025, University of Bristol)**:
-  - Huaicheng Huang, Ruisen He, Esther Chiu, Yingjie Guan, Janet Ngai 
+  - **Huaicheng Huang**: Electromechanical modeling, Simulink simulation, LQR/Soft-LQR & filtering implementation
+  - **Ruisen He**: Simulink simulation, system integration, and testing of cascade PID control
+  - **Esther Chiu**: Dynamic modeling, Simulink simulation, integration, and testing of swing-up control
+  - **Yingjie Guan**: Mechanical design/manufacturing, system parameter identification, and disturbance testing
+  - **Janet Ngai**: Electrical and embedded implementation, switching logic integration/testing, and PCB design
 - **Supervisor**: Dr. Andrew Harrison
 - **Base Dynamics Reference**: The initial Furuta pendulum Simulink state-derivative and animation framework in `simulation/pid_swingup/` was adapted from the open-source `furuta-inverted-pendulum` base dynamics template (see `simulation/pid_swingup/README_base_model.md`) and extended by our team for hardware parameters, swing-up, cascade PID, discrete LQR, and filtering.
