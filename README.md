@@ -1,5 +1,7 @@
 # 2-DOF Furuta Rotary Inverted Pendulum
 
+English | [中文说明](README_CN.md)
+
 **Design, Build, and Test of a Non-Linear Dynamic System** — Electromechanical Group Project (Group G2025), School of Electrical, Electronic, and Mechanical Engineering, University of Bristol (2025–2026).
 
 This repository contains the embedded STM32 firmware, MATLAB/Simulink models, mechanical CAD files, electrical documentation, experimental logs, and the final technical report for an autonomous swing-up and upright-balancing Furuta pendulum testbed.
@@ -21,6 +23,7 @@ This repository contains the embedded STM32 firmware, MATLAB/Simulink models, me
 
 ```text
 ├── README.md
+├── README_CN.md
 ├── LICENSE
 ├── docs/
 │   ├── Final_Report_G2025.pdf          # Complete final project report (PDF)
