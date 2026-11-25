@@ -71,11 +71,17 @@ Full plots and derivations for all subsystems are documented in [`docs/Final_Rep
 
 ### 3. Visual Previews & Demo Video
 
-*(Note: Standalone figures and `.csv` logs in `experiments/` cover the LQR characterization suite; Swing-Up, Cascade PID time-domain/phase-portrait plots, and PID-vs-LQR disturbance comparison plots are presented in Sections 6.1–6.3 and 6.5 of [`docs/Final_Report_G2025.pdf`](docs/Final_Report_G2025.pdf).)*
-
-| Limit Cycle Comparison (LQR vs. Soft-LQR) | Time-Domain Delay Verification |
+| Cascade PID: Hardware Swing-Up & Capture | Cascade PID: Hardware Phase Portraits |
 | :---: | :---: |
-| ![Phase Portrait SoftLQR](experiments/figures/Phase%20Portrait%20of%20Limit%20Cycle%20SoftLQR.png) | ![Delay Verification](experiments/figures/Time-domain%20Delay%20Verification.png) |
+| ![PID Hardware Angle Response](experiments/figures/PID_hardware_angle_response.png) | ![PID Hardware Phase Portrait](experiments/figures/PID_hardware_phase_portrait.png) |
+
+| PID vs. LQR: 30 ms 100% PWM Disturbance | LQR vs. Soft-LQR: Limit Cycle Comparison |
+| :---: | :---: |
+| ![PID vs LQR 30ms Disturbance](experiments/figures/PID_vs_LQR_30ms_disturbance.png) | ![Phase Portrait SoftLQR](experiments/figures/Phase%20Portrait%20of%20Limit%20Cycle%20SoftLQR.png) |
+
+- Additional PID & LQR plots in [`experiments/figures/`](experiments/figures/):
+  - [PID Zoomed Capture & Motor PWM (`0.54 s` settling)](experiments/figures/PID_hardware_zoomed_control.png)
+  - [LQR Time-Domain Delay Verification (`11.6 ms` measured lag)](experiments/figures/Time-domain%20Delay%20Verification.png)
 
 https://github.com/user-attachments/assets/3cab052c-f99d-4dfd-ab25-deb1932a8f66
 
