@@ -89,6 +89,6 @@ https://github.com/user-attachments/assets/3cab052c-f99d-4dfd-ab25-deb1932a8f66
 ## Team & Acknowledgments
 
 - **Project Team (Group G2025, University of Bristol)**:
-  - Janet Ngai, Huaicheng Huang, Ruisen He, Esther Chiu, Yingjie Guan
+  - Huaicheng Huang, Ruisen He, Esther Chiu, Yingjie Guan, Janet Ngai 
 - **Supervisor**: Dr. Andrew Harrison
 - **Base Dynamics Reference**: The initial Furuta pendulum Simulink state-derivative and animation framework in `simulation/pid_swingup/` was adapted from the open-source `furuta-inverted-pendulum` base dynamics template (see `simulation/pid_swingup/README_base_model.md`) and extended by our team for hardware parameters, swing-up, cascade PID, discrete LQR, and filtering.
