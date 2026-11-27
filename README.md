@@ -119,10 +119,10 @@ https://github.com/user-attachments/assets/3cab052c-f99d-4dfd-ab25-deb1932a8f66
 ## Team & Acknowledgments
 
 - **Project Team (Group G2025, University of Bristol)**:
-  - **Huaicheng Huang**: Electromechanical modeling, Simulink simulation, LQR/Soft-LQR & filtering implementation
-  - **Ruisen He**: Simulink simulation, system integration, and testing of cascade PID control
-  - **Esther Chiu**: Dynamic modeling, Simulink simulation, integration, and testing of swing-up control
-  - **Yingjie Guan**: Mechanical design/manufacturing, system parameter identification, and disturbance testing
-  - **Janet Ngai**: Electrical and embedded implementation, switching logic integration/testing, and PCB design
+  - **Huaicheng Huang** ([@HankinHuang](https://github.com/HankinHuang)): Electromechanical modeling, Simulink simulation, LQR/Soft-LQR & filtering implementation
+  - **Ruisen He** ([@ruisenhe1020-ai](https://github.com/ruisenhe1020-ai)): Simulink simulation, system integration, and testing of cascade PID control
+  - **Esther Chiu** ([@Esther3108](https://github.com/Esther3108)): Dynamic modeling, Simulink simulation, integration, and testing of swing-up control
+  - **Yingjie Guan** ([@JERRYGYJ](https://github.com/JERRYGYJ)): Mechanical design/manufacturing, system parameter identification, and disturbance testing
+  - **Janet Ngai** ([@JanetNKW](https://github.com/JanetNKW)): Electrical and embedded implementation, switching logic integration/testing, and PCB design
 - **Supervisor**: Dr. Andrew Harrison
 - **Base Dynamics Reference**: The initial Furuta pendulum Simulink state-derivative and animation framework in `simulation/pid_swingup/` was adapted from the open-source `furuta-inverted-pendulum` base dynamics template (see `simulation/pid_swingup/README_base_model.md`) and extended by our team for hardware parameters, swing-up, cascade PID, discrete LQR, and filtering.

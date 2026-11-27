@@ -119,10 +119,10 @@ https://github.com/user-attachments/assets/3cab052c-f99d-4dfd-ab25-deb1932a8f66
 ## 团队分工与致谢
 
 - **项目团队（Group G2025，布里斯托大学）**：
-  - **Huaicheng Huang**：机电联合建模、Simulink 仿真、LQR / Soft-LQR 与滤波算法实现
-  - **Ruisen He**：串级 PID 控制 Simulink 仿真、系统集成与实机测试
-  - **Esther Chiu**：动力学建模、起摆控制 Simulink 仿真、集成与测试
-  - **Yingjie Guan**：机械结构设计加工、系统参数辨识与抗扰动实验测试
-  - **Janet Ngai**：电气与嵌入式实现、切换逻辑集成测试与 PCB 设计
+  - **Huaicheng Huang**（[@HankinHuang](https://github.com/HankinHuang)）：机电联合建模、Simulink 仿真、LQR / Soft-LQR 与滤波算法实现
+  - **Ruisen He**（[@ruisenhe1020-ai](https://github.com/ruisenhe1020-ai)）：串级 PID 控制 Simulink 仿真、系统集成与实机测试
+  - **Esther Chiu**（[@Esther3108](https://github.com/Esther3108)）：动力学建模、起摆控制 Simulink 仿真、集成与测试
+  - **Yingjie Guan**（[@JERRYGYJ](https://github.com/JERRYGYJ)）：机械结构设计加工、系统参数辨识与抗扰动实验测试
+  - **Janet Ngai**（[@JanetNKW](https://github.com/JanetNKW)）：电气与嵌入式实现、切换逻辑集成测试与 PCB 设计
 - **指导教师**：Dr. Andrew Harrison
 - **基础动力学模型致谢**：`simulation/pid_swingup/` 中的初始 Furuta 倒立摆状态导数与动画框架改编自开源项目 `furuta-inverted-pendulum` 基础动力学模板（详见 `simulation/pid_swingup/README_base_model.md`），并由本团队针对实物参数、起摆、串级 PID、离散 LQR 及滤波控制进行了完整扩展。
